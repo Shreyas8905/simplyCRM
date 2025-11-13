@@ -19,9 +19,7 @@ import {
   Bell,
 } from "lucide-react";
 
-
 const API_BASE_URL = "http://localhost:3000";
-
 
 const apiClient = {
   async request(method, url, data = null) {
@@ -49,15 +47,15 @@ const apiClient = {
         throw new Error(errorMessage);
       }
 
-      
       const contentType = response.headers.get("content-type");
       if (contentType && contentType.includes("application/json")) {
         return await response.json();
       }
 
-      return {}; s
+      return {};
+      s;
     } catch (error) {
-s
+      s;
       if (error.name === "TypeError" && error.message.includes("fetch")) {
         throw new Error(
           "Network error: Unable to connect to server. Please check if the backend is running."
@@ -146,7 +144,6 @@ const useAuth = () => {
   return context;
 };
 
-
 const Toast = ({ message, type, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(onClose, 4000);
@@ -185,7 +182,6 @@ const useToast = () => {
   return { showToast, ToastContainer };
 };
 
-
 const LoginPage = ({ onSwitchToRegister }) => {
   const [email, setEmail] = useState("admin@crm.com");
   const [password, setPassword] = useState("admin123");
@@ -218,7 +214,9 @@ const LoginPage = ({ onSwitchToRegister }) => {
             <Users className="text-white" size={32} />
           </div>
           <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
-          <p className="text-gray-600 mt-2">Sign in to your CRM account</p>
+          <p className="text-gray-600 mt-2">
+            Sign in to your simplyCRM account
+          </p>
         </div>
 
         {error && (
@@ -327,7 +325,7 @@ const RegisterPage = ({ onSwitchToLogin }) => {
             <Users className="text-white" size={32} />
           </div>
           <h1 className="text-3xl font-bold text-gray-900">Create Account</h1>
-          <p className="text-gray-600 mt-2">Join our CRM platform</p>
+          <p className="text-gray-600 mt-2">Join our simplyCRM platform</p>
         </div>
 
         {error && (
@@ -448,7 +446,6 @@ const DashboardPage = () => {
       console.log("Stats Response:", statsResponse);
       console.log("Contacts Response:", contactsResponse);
 
-  
       setStats({
         totalContacts: statsResponse?.totalContacts || 0,
         contactsByStatus: statsResponse?.contactsByStatus || [],
@@ -501,7 +498,7 @@ const DashboardPage = () => {
           Welcome back, {user?.name}!
         </h1>
         <p className="text-gray-600 mt-1">
-          Here's what's happening with your CRM today
+          Here's what's happening with your simplyCRM today
         </p>
       </div>
 
@@ -1130,7 +1127,7 @@ const Layout = ({ children }) => {
                 <Users className="text-white" size={24} />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">CRM Pro</h1>
+                <h1 className="text-xl font-bold text-gray-900">SimplyCRM</h1>
                 <p className="text-xs text-gray-500">Business Suite</p>
               </div>
             </div>
@@ -1227,7 +1224,7 @@ const App = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading CRM...</p>
+          <p className="text-gray-600">Loading simplyCRM...</p>
         </div>
       </div>
     );
