@@ -1,4 +1,4 @@
-#+ SimplyCRM
+# SimplyCRM
 
 A modern, full-stack Customer Relationship Management (CRM) application built with a React frontend and an Express backend using MongoDB.
 
